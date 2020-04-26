@@ -11,5 +11,10 @@ module Types
     def test_field
       'Hello World! Graph'
     end
+
+    field :first_task, TaskType, null: false, description: 'return first task'
+    def first_task
+      Task.first
+    end
   end
 end
