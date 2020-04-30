@@ -16,5 +16,17 @@ module Types
     def first_task
       Task.first
     end
+
+    field :all_task, [TaskType], null: false, description: 'all task'
+    def all_task
+      Task.all
+    end
+
+    field :task_search_by, [TaskType], null: false, description: 'task where like match title' do
+      argument :task_name, String, required: true
+    end
+    def task_search_by(task_name:)
+      Task.where('title like ?', "%#{task_name}%")
+    end
   end
 end

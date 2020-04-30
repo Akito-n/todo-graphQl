@@ -1,4 +1,7 @@
 = javascript_pack_tag 'vue_apollo_sample'
 
 #mount_target
-  p = "{{message}}"
+  b search:
+  input[type="text" @input="search"]
+  div[v-for="task in tasks" :key="task.id"]
+    = "{{task.title}}"
